@@ -14,17 +14,17 @@
 
 body {
   background-color: var(--bege);
-    background-image: url("imagem/fundo.jpg"); /* fundo opcional */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--texto);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    min-height: 100vh;
+  background-image: url("imagem/fundo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--texto);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-height: 100vh;
 }
 
 /* CARD PRINCIPAL */
@@ -39,17 +39,20 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-/* LADO ESQUERDO - FOTO DO CASAL */
+/* =========================
+   LADO ESQUERDO – IMAGEM
+========================= */
 .card-left {
   flex: 1;
-  min-width: 300px;
+  overflow: hidden; /* importante para cortar excesso */
 }
 
+/* AJUSTE PRINCIPAL DA RESPONSIVIDADE */
 .card-left img {
   width: 100%;
-  max-width: 450px;
-  height: 100vh;
-  object-fit: cover;
+  height: 100%;
+  object-fit: cover;          /* mantém proporção */
+  object-position: center;    /* centraliza o casal */
   display: block;
 }
 
@@ -76,7 +79,7 @@ body {
   opacity: 0.8;
 }
 
-/* Título dos noivos */
+/* Título */
 .card-right h1 {
   font-family: 'Playfair Display', serif;
   font-size: 54px;
@@ -118,9 +121,9 @@ body {
   border-left: 3px solid var(--verde-olive);
 
   display: flex;
-  flex-direction: column;      /* 👈 UM EMBAIXO DO OUTRO */
-  align-items: center;         /* centraliza horizontalmente */
-  gap: 8px;                    /* espaço entre texto e referência */
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
   text-align: center;
 }
 
@@ -129,7 +132,6 @@ body {
   font-size: 15px;
   color: var(--verde-escuro);
 }
-
 
 /* BOTÕES */
 .actions {
@@ -148,7 +150,6 @@ body {
   font-weight: 600;
   text-align: center;
   font-size: 16px;
-
   border: 2px solid var(--verde-olive);
   transition: all 0.3s ease;
 }
@@ -159,7 +160,6 @@ body {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
-
 
 /* MANUAL DO CASAMENTO */
 .wedding-manual {
@@ -186,20 +186,23 @@ body {
   margin-bottom: 12px;
 }
 
-/* ANIMAÇÃO SUAVE */
+/* ANIMAÇÃO */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* RESPONSIVO */
+/* =========================
+   RESPONSIVO (MOBILE)
+========================= */
 @media (max-width: 768px) {
   .card {
     flex-direction: column;
   }
 
   .card-left {
-    min-height: 300px;
+    width: 100%;
+    height: 280px; /* controla altura da imagem no celular */
   }
 
   .card-right {
@@ -209,7 +212,6 @@ body {
 
   .subtitle {
     font-size: 18px;
-    margin-bottom: -3px;
   }
 
   .card-right h1 {
@@ -221,36 +223,14 @@ body {
   }
 
   .verse {
-    flex-direction: column;
-    align-items: flex-start;
     padding-left: 10px;
-  }
-
-  .verse-ref {
-    margin-left: 0;
-    margin-top: 5px;
-    
   }
 
   .btn {
     font-size: 15px;
     padding: 14px;
   }
-
-  .wedding-manual {
-    padding: 20px;
-    margin-top: 30px;
-  }
-
-  .wedding-manual h2 {
-    font-size: 20px;
-  }
-
-  .wedding-manual p {
-    font-size: 15px;
-  }
 }
-
 
 /* =====================
    MANUAL DOS CONVIDADOS
@@ -264,7 +244,6 @@ body {
   padding: 40px 20px;
   min-height: 100vh;
 }
-
 
 .manual-card {
   background: #ffffff;
@@ -290,7 +269,6 @@ body {
   margin: 0 auto 40px;
 }
 
-/* Grid dos itens */
 .manual-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -318,7 +296,6 @@ body {
   max-width: 160px;
 }
 
-/* Rodapé com iniciais */
 .manual-footer {
   display: flex;
   justify-content: center;
@@ -330,12 +307,4 @@ body {
   margin-bottom: 30px;
 }
 
-.manual-footer .heart {
-  color: var(--verde-olive);
-}
-
-/* Botão voltar */
-.back-btn {
-  display: inline-block;
-  margin-top: 10px;
-}
+.manual-
