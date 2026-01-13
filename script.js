@@ -1,25 +1,26 @@
-// 🔴 AJUSTE AQUI O NÚMERO QUE RECEBERÁ AS CONFIRMAÇÕES
-const numeroDestino = '5511988887777';
+// Data do casamento
+const weddingDate = new Date("September 5, 2026 00:00:00").getTime();
 
-function confirmarPresenca() {
-  const nomeInput = document.getElementById('nome');
-  const nome = nomeInput.value || 'Convidado';
+// Função de contagem regressiva
+const countdownElement = document.getElementById("countdown");
 
-  const mensagem = `Olá! Meu nome é ${nome} e confirmo minha presença no casamento de Cleiton & Heloisa 💍`;
+function updateCountdown() {
+  const now = new Date().getTime();
+  const distance = weddingDate - now;
 
-  abrirWhatsApp(mensagem);
+  if (distance < 0) {
+    countdownElement.innerHTML = "O grande dia chegou!";
+    clearInterval(interval);
+    return;
+  }
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownElement.innerHTML = `${days} dias ${hours}h ${minutes}m ${seconds}s`;
 }
 
-function naoPoderei() {
-  const nomeInput = document.getElementById('nome');
-  const nome = nomeInput.value || 'Convidado';
-
-  const mensagem = `Olá! Meu nome é ${nome} e infelizmente não poderei comparecer ao casamento de Cleiton & Heloisa.`;
-
-  abrirWhatsApp(mensagem);
-}
-
-function abrirWhatsApp(mensagem) {
-  const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensagem)}`;
-  window.open(url, '_blank');
-}
+const interval = setInterval(updateCountdown, 1000);
+updateCountdown();
