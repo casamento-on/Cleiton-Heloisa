@@ -320,3 +320,50 @@ body {
   display: inline-block;
   margin-top: 10px;
 }
+
+@media (max-width: 768px) {
+
+  /* Faz o card ocupar mais largura da tela */
+  .card {
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 12px;
+  }
+
+  /* Aumenta a imagem (essa é a principal mudança) */
+  .card-left {
+    width: 100%;
+    height: auto;
+  }
+
+  .card-left img {
+    height: auto;
+    max-height: 420px; /* deixa maior e mais destacada */
+    object-fit: cover;
+  }
+
+  /* Ajusta o conteúdo pra ocupar melhor o espaço */
+  .card-right {
+    width: 100%;
+    padding: 35px 20px;
+  }
+
+  /* Deixa o conteúdo mais proporcional */
+  .card-right h1 {
+    font-size: 38px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .intro, .date {
+    font-size: 17px;
+  }
+
+  .countdown {
+    font-size: 17px;
+  }
+}
